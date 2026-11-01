@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import API_URL from "../api";
+
 
 function Goals() {
 
@@ -12,7 +14,7 @@ function Goals() {
     const fetchGoals = async () => {
 
         const res = await axios.get(
-            "http://localhost:4000/api/goals",
+            `${API_URL}/api/goals`,
             {
                 headers: {
                     Authorization: `Bearer ${token}`
@@ -31,7 +33,7 @@ function Goals() {
     const addGoal = async () => {
 
         await axios.post(
-            "http://localhost:4000/api/goals",
+            `${API_URL}/api/goals`,
             { title },
             {
                 headers: {
@@ -48,7 +50,7 @@ function Goals() {
     const deleteGoal = async (id) => {
 
         await axios.delete(
-            `http://localhost:4000/api/goals/${id}`,
+            `${API_URL}/api/goals/${id}`,
             {
                 headers: {
                     Authorization: `Bearer ${token}`
@@ -63,7 +65,7 @@ function Goals() {
     const updateProgress = async (id, progress) => {
 
         await axios.put(
-            `http://localhost:4000/api/goals/${id}`,
+            `${API_URL}/api/goals/${id}`,
             { progress },
             {
                 headers: {

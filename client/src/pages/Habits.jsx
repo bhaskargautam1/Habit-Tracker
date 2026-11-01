@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import API_URL from "../api";
 
 function Habits() {
 
@@ -48,7 +49,7 @@ function Habits() {
         try {
 
             const res = await axios.get(
-                "http://localhost:4000/api/habits",
+               `${API_URL}/api/habits`,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`
@@ -83,7 +84,7 @@ function Habits() {
         try {
 
             await axios.post(
-                "http://localhost:4000/api/habits",
+                `${API_URL}/api/habits`,
                 { name },
                 {
                     headers: {
@@ -113,7 +114,7 @@ function Habits() {
         try {
 
             await axios.delete(
-                `http://localhost:4000/api/habits/${id}`,
+                `${API_URL}/api/habits/${id}`,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`
@@ -142,7 +143,7 @@ function Habits() {
 
             await axios.put(
 
-                `http://localhost:4000/api/habits/${id}`,
+                `${API_URL}/api/habits/${id}`,
 
                 { date },
 

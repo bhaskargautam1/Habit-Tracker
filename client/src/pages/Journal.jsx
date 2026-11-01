@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 
 import axios from "axios";
 
+import API_URL from "../api";
+
 function Journal() {
 
     const [text, setText] = useState("");
@@ -14,7 +16,7 @@ function Journal() {
     const fetchEntries = async () => {
 
         const res = await axios.get(
-            "http://localhost:4000/api/journal",
+           `${API_URL}/api/journal`,
             {
                 headers: {
                     Authorization: `Bearer ${token}`
@@ -33,7 +35,7 @@ function Journal() {
     const addEntry = async () => {
 
         await axios.post(
-            "http://localhost:4000/api/journal",
+            `${API_URL}/api/journal`,
             { text },
             {
                 headers: {
@@ -51,7 +53,7 @@ function Journal() {
     const deleteEntry = async (id) => {
 
         await axios.delete(
-            `http://localhost:4000/api/journal/${id}`,
+           `${API_URL}/api/journal/${id}`,
             {
                 headers: {
                     Authorization: `Bearer ${token}`

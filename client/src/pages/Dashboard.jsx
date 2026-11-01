@@ -11,6 +11,7 @@ import {
     Tooltip
 } from "recharts";
 import axios from "axios";
+import API_URL from "../api";
 
 function Dashboard() {
 
@@ -34,21 +35,21 @@ function Dashboard() {
         try {
 
             const habitsRes = await axios.get(
-                "http://localhost:4000/api/habits",
+                `${API_URL}/api/habits`,
                 {
                     headers: { Authorization: `Bearer ${token}` }
                 }
             );
 
             const goalsRes = await axios.get(
-                "http://localhost:4000/api/goals",
+                `${API_URL}/api/goals`,
                 {
                     headers: { Authorization: `Bearer ${token}` }
                 }
             );
 
             const journalsRes = await axios.get(
-                "http://localhost:4000/api/journal",
+                `${API_URL}/api/journal`,
                 {
                     headers: { Authorization: `Bearer ${token}` }
                 }
